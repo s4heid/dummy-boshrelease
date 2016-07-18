@@ -1,0 +1,36 @@
+---
+# BOSH Director must have Cloud Config with the following properties:
+# - vm_type: tiny
+# - disk_type: tiny
+# - network: manual
+
+name: dummy
+
+director_uuid: 7b2d5b8c-2760-4f4c-8d82-c8162cdd8704 # FIXME you put Director's UUID
+
+releases:
+- name: dummy
+  version: latest
+
+stemcells:
+- alias: ubuntu
+  os: ubuntu-trusty
+  version: latest
+
+instance_groups:
+- name: dummy
+  instances: 1
+  vm_type: tiny
+  stemcell: ubuntu
+  networks:
+  - name: manual
+  jobs:
+  - name: dummy
+    release: dummy
+
+update:
+  canaries: 1
+  max_in_flight: 6
+  serial: false
+  canary_watch_time: 1000-60000
+  update_watch_time: 1000-60000
