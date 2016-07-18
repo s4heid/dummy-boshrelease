@@ -1,0 +1,41 @@
+---
+packages:
+- name: bad_package
+  version: e05b55beba82daac75cf5a941429374a7b60c815
+  fingerprint: e05b55beba82daac75cf5a941429374a7b60c815
+  sha1: 411d36fb52848b136dcaa467539456604730709e
+  dependencies: []
+- name: dummy_package
+  version: 8a4fde656f31e3a9eb65f9e103910f50658e7a3a
+  fingerprint: 8a4fde656f31e3a9eb65f9e103910f50658e7a3a
+  sha1: 74df35d9c45ead42b4f372e3cfc3fd366701abcc
+  dependencies: []
+jobs:
+- name: dummy
+  version: 289ecbf3fa7359e84d84e5d7c5edd22689ad81d4
+  fingerprint: 289ecbf3fa7359e84d84e5d7c5edd22689ad81d4
+  sha1: 4a3bb82ce4717c9255710ab717722785454ffe40
+- name: dummy_fail_eventually
+  version: 4f8dbe7f2d68966f0aa3bfd1fe6e4bc61e786c30
+  fingerprint: 4f8dbe7f2d68966f0aa3bfd1fe6e4bc61e786c30
+  sha1: 278fb046c996257ca15ee0d68380a810788e35b4
+- name: dummy_fail_immediate
+  version: e81d7ff810440eb5c726dd2392644effac883c78
+  fingerprint: e81d7ff810440eb5c726dd2392644effac883c78
+  sha1: 02f3806d583c54c22331259b9b31b22f52db463f
+- name: dummy_with_bad_package
+  version: de7713ed0ead9954a444c65348ed27890728cfd3
+  fingerprint: de7713ed0ead9954a444c65348ed27890728cfd3
+  sha1: 612b6801b8b537c62504c1c3aa981f35ed6be12a
+- name: dummy_with_package
+  version: b819fee41c8e2c461e26f338bc0a510841d65c48
+  fingerprint: b819fee41c8e2c461e26f338bc0a510841d65c48
+  sha1: 813b546b9b64bb900ca73349775f6bb687f9348b
+- name: dummy_with_properties
+  version: 4130de1cabfe9c169f0209c195ce7533fb5e5e7f
+  fingerprint: 4130de1cabfe9c169f0209c195ce7533fb5e5e7f
+  sha1: 5fb26a9e24874a8541a65101838d323aa1984e51
+commit_hash: e1ffce69
+uncommitted_changes: true
+name: dummy
+version: '1'
