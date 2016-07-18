@@ -1,7 +1,6 @@
 ---
 # BOSH Director must have Cloud Config with the following properties:
 # - vm_type: tiny
-# - disk_type: tiny
 # - network: manual
 
 name: dummy
