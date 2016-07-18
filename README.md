@@ -5,27 +5,27 @@ A very simple [BOSH](https://github.com/cloudfoundry/bosh) release.
 
 ### 0. Usage
 
-1. Upload the Dummy BOSH release to the BOSH director:
-   ```
-   bosh upload release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v1/dummy-1.tgz
-   ```
-1. Update the BOSH director's [cloud-config](http://bosh.io/docs/cloud-config.html)
-   * create a *network* named *manual*
-   * create a *vm_types* named *tiny*
-   ```
-   vim cloud-config.yml # add 'manual' network and 'tiny' vm_type
-   bosh update cloud-config cloud-config.yml
-   ```
-1. Copy the
-   [sample manifest](https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml),
-   and update it with the BOSH director's UUID:
-   ```
-   curl -OL https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml
-   bosh status --uuid
-   vim dummy.yml # set the director's UUID
-   bosh deployment dummy.yml
-   bosh deploy
-   ```
+* Upload the Dummy BOSH release to the BOSH director:
+```
+bosh upload release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v1/dummy-1.tgz
+```
+* Update the BOSH director's [cloud-config](http://bosh.io/docs/cloud-config.html)
+  * create a *network* named *manual*
+  * create a *vm_types* named *tiny*
+  ```
+  vim cloud-config.yml # add 'manual' network and 'tiny' vm_type
+  bosh update cloud-config cloud-config.yml
+  ```
+* Copy the
+  [sample manifest](https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml),
+  and update it with the BOSH director's UUID:
+```
+curl -OL https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml
+bosh status --uuid
+vim dummy.yml # set the director's UUID
+bosh deployment dummy.yml
+bosh deploy
+```
 
 ### 1. BOSH Jobs
 
