@@ -1,1 +1,9 @@
---- {}
+---
+bad_package/bad_package_file:
+  object_id: 3f6274cb-df7a-4b9b-8f10-06bba9f03469
+  sha: da39a3ee5e6b4b0d3255bfef95601890afd80709
+  size: 0
+dummy_package/dummy_package_file:
+  object_id: c74ef6e3-2058-46e4-aadb-a5cf4032306c
+  sha: fc6839bf1a198a965b852cc5012f9b5b37e68582
+  size: 37
