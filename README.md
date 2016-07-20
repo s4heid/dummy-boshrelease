@@ -7,7 +7,7 @@ A very simple [BOSH](https://github.com/cloudfoundry/bosh) release.
 
 * Upload the Dummy BOSH release to the BOSH director:
 ```
-bosh upload release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v1/dummy-1.tgz
+bosh upload release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v2/dummy-2.tgz
 ```
 * Update the BOSH director's [cloud-config](http://bosh.io/docs/cloud-config.html)
   * create a *network* named *manual*
