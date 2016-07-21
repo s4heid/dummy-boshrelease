@@ -1,0 +1,60 @@
+---
+name: dummy
+
+director_uuid: 93c01d2d-a2a5-49d8-8d02-389fd223a9cf
+
+releases:
+- name: dummy
+  version: latest
+
+instance_groups:
+- name: dummy
+  instances: 1
+  resource_pool: tiny
+  stemcell: ubuntu
+  networks:
+  - name: default
+  jobs:
+  - name: dummy
+    release: dummy
+
+networks:
+- name: default
+  subnets:
+  - range: 10.244.0.64/30
+    dns:
+      - 8.8.8.8
+    gateway: 10.244.0.65
+    static: [10.244.0.66]
+    cloud_properties: {}
+  - range: 10.244.0.68/30
+    dns:
+      - 8.8.8.8
+    gateway: 10.244.0.69
+    cloud_properties: {}
+resource_pools:
+- cloud_properties:
+    ram: 2048
+    disk: 8192
+    cpu: 2
+  name: tiny
+  network: default
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+
+compilation:
+  cloud_properties:
+    ram: 2048
+    disk: 4096
+    cpu: 2
+  network: default
+  reuse_compilation_vms: true
+  workers: 1
+
+update:
+  canaries: 1
+  max_in_flight: 6
+  serial: false
+  canary_watch_time: 1000-60000
+  update_watch_time: 1000-60000
