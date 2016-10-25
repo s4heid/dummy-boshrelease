@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -eux
+
+<% [ 'dummy-disk1', 'dummy-disk2', 'dummy-disk3' ].each do |disk| if_link(disk) do %>
+
+#
+# <%= disk %>
+#
+
+mount="/var/vcap/store-<%= disk %>"
+
+! mountpoint -q "$mount" \
+  || umount "$mount"
+
+<% end ; end %>
+
+echo 0
+exit
