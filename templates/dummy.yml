@@ -5,8 +5,6 @@
 
 name: dummy
 
-director_uuid: 7b2d5b8c-2760-4f4c-8d82-c8162cdd8704 # FIXME you put Director's UUID
-
 releases:
 - name: dummy
   version: latest

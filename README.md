@@ -5,26 +5,22 @@ A very simple [BOSH](https://github.com/cloudfoundry/bosh) release.
 
 ### 0. Usage
 
-* Upload the Dummy BOSH release to the BOSH director:
+* Upload the Dummy BOSH release to the BOSH director using BOSH cli v2 and a configured [enviroment](https://bosh.io/docs/cli-envs.html):
 ```
-bosh upload release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v2/dummy-2.tgz
+bosh upload-release https://github.com/pivotal-cf-experimental/dummy-boshrelease/releases/download/v2/dummy-2.tgz
 ```
 * Update the BOSH director's [cloud-config](http://bosh.io/docs/cloud-config.html)
   * create a *network* named *manual*
   * create a *vm_types* named *tiny*
   ```
   vim cloud-config.yml # add 'manual' network and 'tiny' vm_type
-  bosh update cloud-config cloud-config.yml
+  bosh update-cloud-config cloud-config.yml
   ```
 * Copy the
-  [sample manifest](https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml),
-  and update it with the BOSH director's UUID:
+  [sample manifest](https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml):
 ```
 curl -OL https://raw.githubusercontent.com/pivotal-cf-experimental/dummy-boshrelease/master/templates/dummy.yml
-bosh status --uuid
-vim dummy.yml # set the director's UUID
-bosh deployment dummy.yml
-bosh deploy
+bosh deploy -d dummy dummy.yml
 ```
 
 ### 1. BOSH Jobs
