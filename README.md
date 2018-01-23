@@ -41,6 +41,8 @@ Dummy BOSH release has the following jobs:
 1. `dummy_fail_immediate` has no packages and only 1 job that
    does not record a PID and exits immediately.
 
+1. `dummy_errand` has no packages and echo to stdout
+
 Use `dummy-boshrelease` to create a deployment manifest more easily, especially handy if it's your first time
 creating a deployment manifest.
 
