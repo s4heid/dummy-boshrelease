@@ -1,0 +1,15 @@
+---
+name: dummy_with_disk_links
+templates:
+  drain: bin/drain
+  pre-start: bin/pre-start
+packages: []
+consumes:
+- name: dummy-disk1
+  type: disk
+- name: dummy-disk2
+  type: disk
+  optional: true
+- name: dummy-disk3
+  type: disk
+  optional: true

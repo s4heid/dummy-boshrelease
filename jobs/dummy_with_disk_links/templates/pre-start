@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -eux
+
+<% [ 'dummy-disk1', 'dummy-disk2', 'dummy-disk3' ].each do |disk| if_link(disk) do %>
+
+#
+# <%= disk %>
+#
+
+name="<%= disk %>"
+disk="$( readlink -f /var/vcap/instance/disks/<%= link(disk).p('name') %> )"
+mount="/var/vcap/store-$name"
+
+if [ ! -e ${disk}1 ]; then
+  parted $disk mklabel gpt
+  parted -a opt $disk mkpart primary ext4 0% 100%
+  mkfs -t ext4 -m 1 -v ${disk}1
+fi
+
+[ -e "$mount" ] \
+  || mkdir "$mount"
+
+mountpoint -q "$mount" \
+  || mount ${disk}1 "$mount"
+
+if [ ! -e "$mount/name" ]; then
+  date > "$mount/disk-$name"
+  cp /var/vcap/instance/{az,id,name} "$mount/"
+fi
+
+<% end ; end %>
