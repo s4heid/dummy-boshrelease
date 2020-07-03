@@ -2,5 +2,6 @@
 name: dummy
 templates:
   ctl.erb: bin/dummy_ctl
+  drainy.erb: bin/drain
 
 packages: []
